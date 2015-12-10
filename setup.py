@@ -4,11 +4,11 @@ setup(
   name = 'fileloader',
   packages = ['fileloader'], 
   version = '0.1',
-  description = 'Downloading files (support http and ftp protocols, cachinhg, allows accessing remote and local files in uniform way',
+  description = 'Downloading files (http,ftp). Supports cachinhg and allows uniform access to remote and local files',
   author = 'napuzba',
   author_email = 'kobi@napuzba.com',
   url = 'https://github.com/napuzba/FileLoader.git',
-  download_url = 'https://github.com/napuzba/FileLoader/archive/0.1.zip',
+  download_url = 'https://github.com/napuzba/fileloader/archive/0.1.zip',
   keywords = ['download','ftp','http'],
   classifiers = [],
 )
