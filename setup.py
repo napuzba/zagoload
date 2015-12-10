@@ -4,7 +4,7 @@ setup(
   name = 'fileloader',
   packages = ['fileloader'], 
   version = '0.1',
-  description = 'Downloading files (http,ftp). Supports cachinhg and allows uniform access to remote and local files',
+  description = 'Downloading files (http,ftp). Supports cachinhg and uniform access to remote and local files',
   author = 'napuzba',
   author_email = 'kobi@napuzba.com',
   url = 'https://github.com/napuzba/fileloader.git',
