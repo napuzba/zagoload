@@ -21,7 +21,7 @@ Usage
 
 See `Download Files with Fileloader`_ for turorial.
 
-.. _Download Files with Fileloader: http://www.napuzba.com/story/download-files-with-fileloader/'
+.. _Download Files with Fileloader: http://www.napuzba.com/story/download-files-with-fileloader/
 '''
 
 setup(
@@ -36,17 +36,17 @@ setup(
   long_description = long_description,
   keywords         = ['download,crawl,ftp,http'],
   classifiers      = [
-	'Development Status :: 5 - Production/Stable',
-	'Intended Audience :: Developers',
-	'Intended Audience :: Developers',
-	'Intended Audience :: Information Technology',
-	'Intended Audience :: Science/Research',
-	'Intended Audience :: System Administrators',
-	'Programming Language :: Python :: 2',
-	'Programming Language :: Python :: 3',
-	'Operating System :: OS Independent',
-	'Topic :: Software Development :: Libraries :: Python Modules',
-	'Topic :: Internet :: File Transfer Protocol (FTP)',	
-	'Topic :: Internet :: WWW/HTTP :: Indexing/Search'
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: System Administrators',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 3',
+    'Operating System :: OS Independent',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Internet :: File Transfer Protocol (FTP)',    
+    'Topic :: Internet :: WWW/HTTP :: Indexing/Search'
   ],
 )
