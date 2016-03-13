@@ -1,6 +1,9 @@
+# Copyright (C) 2014 Napuzba [kobi@napuzba.com]
+# Licensed under MIT license [http://openreq.source.org/licenses/MIT]
+
 from distutils.core import setup
 
-description = 'Downloading files (http,ftp). Supports: cachinhg, uniform access to remote and local files'
+description = 'Downloading files (http,ftp).Supports: cachinhg, uniform access to remote and local files'
 long_description = '''
 =====
 About
@@ -27,17 +30,16 @@ See `Download Files with Fileloader`_ for turorial.
 setup(
   name             = 'fileloader',
   packages         = ['fileloader'], 
-  version          = '1.0',  
+  version          = '2.0.1',  
   author           = 'napuzba',
   author_email     = 'kobi@napuzba.com',
   url              = 'https://github.com/napuzba/fileloader.git',
-  download_url     = 'https://github.com/napuzba/fileloader/archive',
+  download_url     = 'https://github.com/napuzba/fileloader/releases',
   description      = description,
   long_description = long_description,
   keywords         = ['download,crawl,ftp,http'],
   classifiers      = [
     'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
     'Intended Audience :: Developers',
     'Intended Audience :: Information Technology',
     'Intended Audience :: Science/Research',
