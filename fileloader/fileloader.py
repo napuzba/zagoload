@@ -187,7 +187,6 @@ class FileLoader:
             return
 
         ftpInfo = FtpInfo().parse(req.source)
-        print ftpInfo
         try:
             self.ftp = ftplib.FTP()
             self.ftp.connect(ftpInfo.host,ftpInfo.port)
