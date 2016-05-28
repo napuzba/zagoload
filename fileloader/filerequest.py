@@ -2,7 +2,7 @@
 # Licensed under MIT license [http://openreq.source.org/licenses/MIT]
 
 import codecs
-import helpers
+from . import helpers
 
 from .requeststate import RequestState
 from .cachemode    import CacheMode
@@ -65,7 +65,7 @@ class FileRequest:
         self.action      = action
 
         self.base        = source
-        if self.headers.has_key('User-Agent') == False:
+        if ('User-Agent' in self.headers) == False:
             self.headers['User-Agent'] = 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'
 
     def loadData(self):
@@ -76,7 +76,7 @@ class FileRequest:
             try:
                 with codecs.open(self.target,encoding='utf8',errors='ignore') as ff:
                     self.data = ff.read()
-            except Exception,ee:
+            except Exception as ee:
                 pass
 
     def clear(self):

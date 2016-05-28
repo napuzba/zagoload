@@ -13,13 +13,10 @@ import os
 import os.path
 import sys
 
-
-import helpers
-
 from .cachemode   import CacheMode
 from .filerequest import FileRequest, RequestState
 from .ftpinfo     import FtpInfo
-
+from .            import helpers
 
 class FileLoader:
     '''
@@ -126,8 +123,9 @@ class FileLoader:
         if req.state  != RequestState.PendingDownload:
             return
         counter = 0
-        if isinstance(req.source,unicode):
-            req.source = req.source.encode('utf8')
+        if sys.version_info[0] == 2:
+            if isinstance(req.source,str):
+                req.source = req.source.encode('utf8')
         while (counter <= req.retries) and (req.state != RequestState.Downloaded):
             if counter >= 1:
                 self.log(u"Retry {0} : {1}",counter, req.source)
@@ -165,13 +163,13 @@ class FileLoader:
                             break
                 req.target = req.target
                 req.state  = RequestState.Downloaded
-            except IOError, ee:
+            except IOError as ee:
                 req.state = RequestState.FailDownload
                 if hasattr(ee, 'reason'):
                     self.log(u'Fail download <{0}>. Reason: {1}',req.source, str(ee.reason))
                 elif hasattr(ee, 'code'):
                     self.log(u'Fail download <{0}>. The server could not fulfill the request. Error code: {1}',req.source,str(ee.code))
-            except Exception, ee:
+            except Exception as ee:
                 req.state = RequestState.FailDownload
                 self.log(u'Fail download <{0}>',req.source)
                 self.logException(ee)
@@ -191,7 +189,7 @@ class FileLoader:
             self.ftp = ftplib.FTP()
             self.ftp.connect(ftpInfo.host,ftpInfo.port)
             self.log(u'**** Connected to host "{0}"',ftpInfo.host)
-        except (socket.error, socket.gaierror), e:
+        except (socket.error, socket.gaierror) as e:
             self.log(u'ERR: cannot reach "{0}"',ftpInfo.host)
             req.state = filerequest.RequestState.FailDownload
             return
@@ -282,9 +280,12 @@ class FileLoader:
         :return :str:
             The hash value
         '''
-        if isinstance(ss,unicode):
+        if sys.version_info[0] >= 3 or isinstance(ss,unicode):
             ss = ss.encode('utf8')
         hh = base64.urlsafe_b64encode(hashlib.sha224(ss).digest())
+        if sys.version_info[0] == 3:
+            hh = hh.decode('ascii')
+
         return hh[:size]
 
     def log(self,msg,*args):

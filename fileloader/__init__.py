@@ -6,7 +6,6 @@ from .cachemode   import CacheMode
 from .filerequest import FileRequest
 from .ftpinfo     import FtpInfo
 from .fileloader  import FileLoader
-import helpers
 
 loader = FileLoader("Cache")
 
