@@ -1,7 +1,7 @@
 # Copyright (C) 2014 Napuzba [kobi@napuzba.com]
 # Licensed under MIT license [http://openreq.source.org/licenses/MIT]
 
-from distutils.core import setup
+from setuptools import setup
 
 description = 'Download files (http,ftp).Supports: cachinhg, uniform access to remote and local files'
 long_description = '''
@@ -45,7 +45,7 @@ setup(
   classifiers      = [
     'Topic :: Software Development :: Libraries :: Python Modules',
     'Topic :: Internet :: File Transfer Protocol (FTP)',    
-    'Topic :: Internet :: WWW/HTTP :: Indexing/Search'
+    'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
 
     'Development Status :: 5 - Production/Stable',
     'License :: OSI Approved :: MIT License',
