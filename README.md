@@ -9,4 +9,4 @@ FileLoader allows to access in local files and remote files in uniform way.
 For usage visit [Download Files with Fileloader tutorial](http://www.napuzba.com/story/download-files-with-fileloader/).
 
 
-![status](https://travis-ci.org/napuzba/fileloader.svg)
+[![status](https://travis-ci.org/napuzba/fileloader.svg)](https://travis-ci.org/napuzba/fileloader)
