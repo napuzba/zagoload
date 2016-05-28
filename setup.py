@@ -3,13 +3,13 @@
 
 from distutils.core import setup
 
-description = 'Downloading files (http,ftp).Supports: cachinhg, uniform access to remote and local files'
+description = 'Download files (http,ftp).Supports: cachinhg, uniform access to remote and local files'
 long_description = '''
 =====
 About
 =====
 
-fileloader module simplifies downloading and accessing remote files. 
+fileloader module simplifies downloading and accessing remote files.
 
 ********
 Features
@@ -30,28 +30,33 @@ See `Download Files with Fileloader`_ for turorial.
 setup(
   name             = 'fileloader',
   packages         = ['fileloader'], 
-  install_requires=[
+  install_requires = [
      'urllib3 >= 1.0',
   ],
-  version          = '2.0.2',  
+  version          = '2.1.0',  
   author           = 'napuzba',
   author_email     = 'kobi@napuzba.com',
   url              = 'https://github.com/napuzba/fileloader.git',
   download_url     = 'https://github.com/napuzba/fileloader/releases',
   description      = description,
   long_description = long_description,
+  license          = 'MIT',
   keywords         = ['download,crawl,ftp,http'],
   classifiers      = [
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Internet :: File Transfer Protocol (FTP)',    
+    'Topic :: Internet :: WWW/HTTP :: Indexing/Search'
+
     'Development Status :: 5 - Production/Stable',
+    'License :: OSI Approved :: MIT License',
+
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 3',
+    'Operating System :: OS Independent',
+
     'Intended Audience :: Developers',
     'Intended Audience :: Information Technology',
     'Intended Audience :: Science/Research',
     'Intended Audience :: System Administrators',
-    'Programming Language :: Python :: 2',
-    'Programming Language :: Python :: 3',
-    'Operating System :: OS Independent',
-    'Topic :: Software Development :: Libraries :: Python Modules',
-    'Topic :: Internet :: File Transfer Protocol (FTP)',    
-    'Topic :: Internet :: WWW/HTTP :: Indexing/Search'
   ],
 )
