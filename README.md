@@ -1,5 +1,6 @@
-# FileLoader
-FileLoader allows to access in local files and remote files in uniform way featuring:
+# fileloader
+
+fileloader is python package for downloading files featuring:
  - Remote files can be accessible thought HTTP and FTP protocols.
  - The files can be cached locally.
 
@@ -8,5 +9,4 @@ FileLoader allows to access in local files and remote files in uniform way featu
 [![License](https://img.shields.io/pypi/l/fileloader.svg?maxAge=2592000?style=plastic)](ttps://pypi.python.org/pypi/fileloader) 
 [![Build Status](http://img.shields.io/travis/napuzba/fileloader.svg)](https://travis-ci.org/napuzba/fileloader)
 
-## Usage
 For usage visit [Download Files with Fileloader tutorial](http://www.napuzba.com/story/download-files-with-fileloader/).
