@@ -2,9 +2,9 @@
 # Licensed under MIT license [http://openreq.source.org/licenses/MIT]
 
 import unittest
-import fileloader
+from .. import fileloader
 
-class TestFtpInfo(unittest.TestCase):
+class Test_FtpInfo(unittest.TestCase):
     def test_parse(self):
         self.assertParse( 'ftp://host'                           , 'host' , ''       , ''     , 21  , '', '' )
         self.assertParse( 'ftp://host:2121'                      , 'host' , ''       , ''     , 2121, '', '' )
