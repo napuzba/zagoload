@@ -33,7 +33,7 @@ setup(
   install_requires = [
      'urllib3 >= 1.0',
   ],
-  version          = '2.1.0',  
+  version          = '2.1.1',  
   author           = 'napuzba',
   author_email     = 'kobi@napuzba.com',
   url              = 'https://github.com/napuzba/fileloader.git',

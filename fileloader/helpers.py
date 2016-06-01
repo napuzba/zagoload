@@ -41,7 +41,7 @@ def buildUrl(url, params):
                 query += urllib.quote_plus(s1) + '=' + urllib.quote_plus(s2)
             if sys.version_info[0] >= 3:
                 if not isinstance(s1,str): s1 = str(s1)
-                if not isinstance(s2,str): s3 = str(s2)
+                if not isinstance(s2,str): s2 = str(s2)
                 import urllib.parse
                 query += urllib.parse.quote_plus(s1) + '=' + urllib.parse.quote_plus(s2)
         return query
