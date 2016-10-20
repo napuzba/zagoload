@@ -2,7 +2,7 @@
 # Licensed under MIT license [http://openreq.source.org/licenses/MIT]
 
 import unittest
-from .. import fileloader
+from .. import zagoload
 
 class Test_FtpInfo(unittest.TestCase):
     def test_parse(self):
@@ -15,7 +15,7 @@ class Test_FtpInfo(unittest.TestCase):
         self.assertParse( 'http://host.com'                      , ''     , ''       , ''     , 21  , ''    , ''     , False )
 
     def assertParse(self, url, host, path, file, port, username, password, valid = True):
-        fi =  fileloader.FtpInfo().parse(url)
+        fi =  zagoload.FtpInfo().parse(url)
         self.assertEqual(fi.username , username)
         self.assertEqual(fi.password , password)
         self.assertEqual(fi.host     , host    )

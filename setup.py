@@ -3,13 +3,13 @@
 
 from setuptools import setup
 
-description = 'Download files (http,ftp). Supports: cachinhg, uniform access to remote and local files'
+description = 'Download files(http,ftp). Supports: cachinhg, uniform access to remote and local files'
 long_description = '''
 =====
 About
 =====
 
-fileloader module simplifies downloading and accessing remote files.
+zagoload module simplifies downloading and accessing remote files.
 
 ********
 Features
@@ -22,22 +22,21 @@ Features
 Usage
 *****
 
-See `Download Files with Fileloader`_ for turorial.
+See `Download Files with zagoload`_ for turorial.
 
-.. _Download Files with Fileloader: http://www.napuzba.com/story/download-files-with-fileloader/
+.. _Download Files with Fileloader: http://www.napuzba.com/story/download-files-with-zagoload/
 '''
 
 setup(
-  name             = 'fileloader',
-  packages         = ['fileloader'],
+  name             = 'zagoload',
+  packages         = ['zagoload'],
   install_requires = [
      'urllib3 >= 1.0',
   ],
   version          = '2.1.1',
   author           = 'napuzba',
   author_email     = 'kobi@napuzba.com',
-  url              = 'https://github.com/napuzba/fileloader.git',
-  download_url     = 'https://github.com/napuzba/fileloader/releases',
+  url              = 'https://github.com/napuzba/zagoload.git',
   description      = description,
   long_description = long_description,
   license          = 'MIT',

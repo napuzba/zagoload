@@ -41,11 +41,13 @@ class FileLoader:
         source            ,
         target      = ''  ,
         params      = {}  ,
+        postdata    = {}  ,
         timeout     = 0   ,
         retries     = 0   ,
         contentType = ''  ,
         onDownload  = None,
-        autoLoad    = True,
+        autoText    = True,
+        autoJson    = False,
         cacheMode   = CacheMode.Enabled ,
         cacheTime   = 0   ,
         headers     = {}  ):
@@ -55,11 +57,13 @@ class FileLoader:
             source                   ,
             target      = target     ,
             params      = params     ,
+            postdata    = postdata   ,
             timeout     = timeout    ,
             retries     = retries    ,
             contentType = contentType,
             onDownload  = onDownload ,
-            autoLoad    = autoLoad   ,
+            autoText    = autoText   ,
+            autoJson    = autoJson   ,
             cacheMode   = cacheMode  ,
             cacheTime   = cacheTime  ,
             headers     = headers
@@ -81,8 +85,10 @@ class FileLoader:
         elif req.source != ''             :
             self.loadLocal(req)
 
-        if req.valid and req.autoLoad:
-            req.loadData()
+        if req.valid and req.autoText:
+            req.loadText()
+        if req.valid and req.autoJson:
+            req.loadJson()
         return req
 
     def checkCache(self,req):
@@ -132,7 +138,11 @@ class FileLoader:
                 time.sleep(1)
             counter += 1
             try:
-                ff = self.http.urlopen(req.action , req.source ,preload_content=False )
+                ff = None
+                if not req.postdata:
+                    ff = self.http.urlopen(req.action , req.source ,preload_content=False )
+                else:
+                    ff = self.http.request(req.action , req.source ,preload_content=False , fields = req.postdata )
                 req.rHeaders = ff.headers
                 req.rStatus  = ff.status
                 if ff.status != 200 and ff.status >= 400:

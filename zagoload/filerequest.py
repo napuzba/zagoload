@@ -2,10 +2,12 @@
 # Licensed under MIT license [http://openreq.source.org/licenses/MIT]
 
 import codecs
-from . import helpers
+import json
 
+from . import helpers
 from .requeststate import RequestState
 from .cachemode    import CacheMode
+
 
 class FileRequest:
     '''
@@ -15,11 +17,13 @@ class FileRequest:
         source            ,
         target      = ''  ,
         params      = {}  ,
+        postdata    = {}  ,
         timeout     = 0   ,
         retries     = 0   ,
         contentType = ''  ,
         onDownload  = None,
-        autoLoad    = True,
+        autoText    = True,
+        autoJson    = False,
         cacheMode   = CacheMode.Enabled ,
         cacheTime   = 0   ,
         headers     = {}  ,
@@ -32,6 +36,8 @@ class FileRequest:
             Path of the downloaded file
         :param dict params:
             Get parameters
+        :param dict params:
+            Post parameters
         :param int timeout:
             Timeout in seconds
         :param int retries:
@@ -40,8 +46,8 @@ class FileRequest:
             Expected content type
         :param callback onDownload:
             Callback function to be called while downloading
-        :param bool autoLoad:
-            Whether to load data
+        :param bool loadText:
+            Whether to load text
         :param int cacheTime:
             Maximum cache time in seconds
         :param Cache cachMode:
@@ -53,11 +59,13 @@ class FileRequest:
 
         self.target      = target
         self.params      = params
+        self.postdata    = postdata
         self.timeout     = timeout
         self.retries     = retries
         self.contentType = contentType
         self.onDownload  = onDownload
-        self.autoLoad    = autoLoad
+        self.autoText    = autoText
+        self.autoJson    = autoJson
         self.state       = RequestState.PendingNew
         self.headers     = headers
         self.cacheTime   = cacheTime
@@ -68,24 +76,37 @@ class FileRequest:
         if ('User-Agent' in self.headers) == False:
             self.headers['User-Agent'] = 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'
 
-    def loadData(self):
+    def loadText(self):
         '''
-        Load the data stored in the target to memory
+        Load the text stored in the target to memory
         '''
-        if self.valid:
-            try:
-                with codecs.open(self.target,encoding='utf8',errors='ignore') as ff:
-                    self.data = ff.read()
-            except Exception as ee:
-                pass
+        if self.valid == False:
+            return
+        try:
+            with codecs.open(self.target,encoding='utf8',errors='ignore') as ff:
+                self.text = ff.read()
+        except Exception as ee:
+            pass
+
+    def loadJson(self):
+        if self.valid == False:
+            return
+        try:
+            with codecs.open(self.target,encoding='utf8',errors='ignore') as ff:
+                self.json = json.load(ff)
+        except:
+            pass
 
     def clear(self):
         '''
         Clear the current request
         '''
-        self.source = helpers.buildUrl(self.base,self.params)
-        self.state  = RequestState.PendingNew
-        self.data   = ''
+        self.source   = helpers.buildUrl(self.base,self.params)
+        self.state    = RequestState.PendingNew
+        self.text     = ''
+        self.json     = None
+        self.rStatus  = 0
+        self.rHeaders = {}
 
     @property
     def valid(self):
@@ -104,6 +125,6 @@ class FileRequest:
     @property
     def pending(self):
         '''
-        Whether the request is not complated
+        Whether the request is not completed
         '''
         return not ( self.valid and self.failed)
