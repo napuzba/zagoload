@@ -3,26 +3,12 @@
 
 from setuptools import setup
 
-description = 'Download files(http,ftp). Supports: cachinhg, uniform access to remote and local files'
-long_description = '''
-=====
-About
-=====
+def read(name):
+    with open(name) as ff:
+        return ff.read()
 
-zagoload module simplifies downloading and accessing remote files:
-
-1. Access to Remote files (accessible thought HTTP and FTP protocols) and local files in uniform way.
-2. Consume restful webservices with a breeze
-3. Cache your downloaded files to save resources
-
-*****
-Usage
-*****
-
-See `Download Files with zagoload`_ for turorial.
-
-.. _Download Files with Fileloader: http://www.napuzba.com/story/download-files-with-zagoload/
-'''
+description = 'Download files(http,ftp). Supports: cache, uniform access to remote and local files'
+long_description = read('README.rst')
 
 setup(
   name             = 'zagoload',
@@ -30,7 +16,7 @@ setup(
   install_requires = [
      'urllib3 >= 1.0',
   ],
-  version          = '0.5.0',
+  version          = '0.5.1',
   author           = 'napuzba',
   author_email     = 'kobi@napuzba.com',
   url              = 'https://github.com/napuzba/zagoload.git',
