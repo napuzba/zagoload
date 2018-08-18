@@ -6,6 +6,7 @@ zagoload is python package for downloading files.
 [![Python](https://img.shields.io/pypi/pyversions/zagoload.svg?maxAge=2592000?style=plastic)](https://pypi.python.org/pypi/zagoload)
 [![License](https://img.shields.io/pypi/l/zagoload.svg?maxAge=2592000?style=plastic)](ttps://pypi.python.org/pypi/zagoload)
 [![Build Status](http://img.shields.io/travis/napuzba/zagoload.svg)](https://travis-ci.org/napuzba/zagoload)
+![zagoload PyPI Downloads](https://pypistats.com/badge/zagoload.svg)
  
 zagoload supposts:
  - Remote files can be accessible thought HTTP and FTP protocols.
